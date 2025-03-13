@@ -14,7 +14,7 @@ use Tinderbox\ClickhouseBuilder\Query\Enums\Format;
 use Tinderbox\ClickhouseBuilder\Query\Grammar;
 
 /**
- * @property \Mockery\MockInterface|Connection connection
+ * @property MockInterface|Connection connection
  * @property Builder builder
  */
 class BuilderTest extends TestCase

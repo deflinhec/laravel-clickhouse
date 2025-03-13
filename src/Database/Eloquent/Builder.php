@@ -207,7 +207,7 @@ class Builder
     /**
      * Add a basic where clause to the query.
      *
-     * @param string|array|\Closure $column
+     * @param string|array|Closure $column
      * @param string                $operator
      * @param mixed                 $value
      * @return $this
@@ -229,7 +229,7 @@ class Builder
     /**
      * Add an "or where" clause to the query.
      *
-     * @param \Closure|array|string $column
+     * @param Closure|array|string $column
      * @param string                $operator
      * @param mixed                 $value
      * @return $this
@@ -283,7 +283,7 @@ class Builder
     /**
      * Find multiple models by their primary keys.
      *
-     * @param \Illuminate\Contracts\Support\Arrayable|array $ids
+     * @param Arrayable|array $ids
      */
     public function findMany($ids): Collection
     {
@@ -422,7 +422,6 @@ class Builder
     /**
      * Chunk the results of a query by comparing numeric IDs.
      *
-     * @param null        $column
      * @param string|null $alias
      */
     public function chunkById(int $count, callable $callback, $column = null, $alias = null): bool
@@ -455,7 +454,7 @@ class Builder
             }
 
             $lastId = $results->last()
-->{$alias};
+                ->{$alias};
 
             unset($results);
         } while ($countResults === $count);
@@ -506,7 +505,7 @@ class Builder
         $perPage = $perPage !== null && $perPage !== 0 ? $perPage : $this->model->getPerPage();
         $results = ($total = $this->toBase()->getCountForPagination())
             ? $this->forPage($page, $perPage)
-                ->get($columns)
+                ->get()
             : $this->model->newCollection();
 
         return $this->paginator($results, $total, $perPage, $page, [
