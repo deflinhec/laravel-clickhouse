@@ -136,10 +136,6 @@ class CollectionTest extends TestCase
         }
     }
 
-    /**
-     * @param null $operator
-     * @param null $value
-     */
     #[\PHPUnit\Framework\Attributes\DataProvider('containsDataProvider')]
     public function testContains(bool $expected, $key, $operator = null, $value = null): void
     {
