@@ -21,10 +21,8 @@ class Builder extends BaseBuilder
 
     protected Connection $connection;
 
-    public function __construct(
-        Connection $connection,
-        Grammar $grammar
-    ) {
+    public function __construct(Connection $connection, Grammar $grammar)
+    {
         $this->connection = $connection;
         $this->grammar = $grammar;
     }

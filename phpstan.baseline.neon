@@ -1,1066 +1,1267 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot access offset 'db' on Illuminate\\\\Contracts\\\\Foundation\\\\Application\\.$#"
+			message: '#^Cannot access offset ''db'' on Illuminate\\Contracts\\Foundation\\Application\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/ClickHouseServiceProvider.php
 
 		-
-			message: "#^Cannot access offset 'events' on Illuminate\\\\Contracts\\\\Foundation\\\\Application\\.$#"
+			message: '#^Cannot access offset ''events'' on Illuminate\\Contracts\\Foundation\\Application\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/ClickHouseServiceProvider.php
 
 		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\ClickHouseServiceProvider is neither abstract nor final\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\ClickHouseServiceProvider is neither abstract nor final\.$#'
+			identifier: ergebnis.final
 			count: 1
 			path: src/ClickHouseServiceProvider.php
 
 		-
-			message: "#^PHPDoc tag @throws has invalid value \\(\\)\\: Unexpected token \"\\\\n     \", expected type at offset 18$#"
+			message: '#^PHPDoc tag @throws has invalid value \(\)\: Unexpected token "\\n     ", expected type at offset 18 on line 2$#'
+			identifier: phpDoc.parseError
 			count: 1
 			path: src/ClickHouseServiceProvider.php
 
 		-
-			message: "#^Class \"Bavix\\\\LaravelClickHouse\\\\Database\\\\Connection\" is not allowed to extend \"Tinderbox\\\\ClickhouseBuilder\\\\Integrations\\\\Laravel\\\\Connection\"\\.$#"
+			message: '#^Class "Bavix\\LaravelClickHouse\\Database\\Connection" is not allowed to extend "Tinderbox\\ClickhouseBuilder\\Integrations\\Laravel\\Connection"\.$#'
+			identifier: ergebnis.noExtends
 			count: 1
 			path: src/Database/Connection.php
 
 		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Connection is neither abstract nor final\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Connection is neither abstract nor final\.$#'
+			identifier: ergebnis.final
 			count: 1
 			path: src/Database/Connection.php
 
 		-
-			message: "#^Return type \\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\) of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Connection\\:\\:query\\(\\) should be compatible with return type \\(Tinderbox\\\\ClickhouseBuilder\\\\Integrations\\\\Laravel\\\\Builder\\) of method Tinderbox\\\\ClickhouseBuilder\\\\Integrations\\\\Laravel\\\\Connection\\:\\:query\\(\\)$#"
+			message: '#^Return type \(Bavix\\LaravelClickHouse\\Database\\Query\\Builder\) of method Bavix\\LaravelClickHouse\\Database\\Connection\:\:query\(\) should be compatible with return type \(Tinderbox\\ClickhouseBuilder\\Integrations\\Laravel\\Builder\) of method Tinderbox\\ClickhouseBuilder\\Integrations\\Laravel\\Connection\:\:query\(\)$#'
+			identifier: method.childReturnType
 			count: 1
 			path: src/Database/Connection.php
 
 		-
-			message: "#^Access to protected property Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:\\$wheres\\.$#"
+			message: '#^Access to protected property Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:\$wheres\.$#'
+			identifier: property.protected
 			count: 5
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:forPageAfterId\\(\\)\\.$#"
+			message: '#^Call to an undefined method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:forNestedWhere\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:skip\\(\\)\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder is neither abstract nor final\.$#'
+			identifier: ergebnis.final
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:forNestedWhere\\(\\)\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder uses generic trait Illuminate\\Database\\Concerns\\BuildsQueries but does not specify its types\: TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Cannot call method getQuery\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Builder.php
-
-		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder is neither abstract nor final\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Builder.php
-
-		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Builder.php
-
-		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: '#^Language construct isset\(\) should not be used\.$#'
+			identifier: ergebnis.noIsset
 			count: 5
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:__call\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:__call\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:__callStatic\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:__callStatic\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:addNestedWiths\\(\\) has parameter \\$results with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:addNestedWiths\(\) has parameter \$results with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:addNestedWiths\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:addNestedWiths\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:addNewWheresWithinGroup\\(\\) has no return type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:addNewWheresWithinGroup\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:callScope\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:callScope\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:create\\(\\) has no return type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:chunkById\(\) has parameter \$column with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:create\\(\\) has parameter \\$attributes with no type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:create\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:createNestedWhere\\(\\) has parameter \\$whereSlice with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:create\(\) has parameter \$attributes with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:createNestedWhere\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:createNestedWhere\(\) has parameter \$whereSlice with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:createSelectWithConstraint\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:createNestedWhere\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:eagerLoadRelation\\(\\) has parameter \\$models with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:createSelectWithConstraint\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:eagerLoadRelation\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:eagerLoadRelation\(\) has parameter \$models with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:eagerLoadRelations\\(\\) has parameter \\$models with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:eagerLoadRelation\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:eagerLoadRelations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:eagerLoadRelations\(\) has parameter \$models with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:find\\(\\) should return array\\<static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\>\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\|null but returns object\\|null\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:eagerLoadRelations\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:findMany\\(\\) has parameter \\$ids with generic interface Illuminate\\\\Contracts\\\\Support\\\\Arrayable but does not specify its types\\: TKey, TValue$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:find\(\) should return array\<static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\>\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\|null but returns mixed\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:findMany\\(\\) has parameter \\$ids with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:findMany\(\) has parameter \$ids with generic interface Illuminate\\Contracts\\Support\\Arrayable but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:findOrFail\\(\\) should return Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model but returns array\\<static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\>\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:findMany\(\) has parameter \$ids with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:findOrFail\\(\\) should return Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model but returns array\\<static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\>\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\|null\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:findOrFail\(\) should return Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model but returns array\<static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\>\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:fromQuery\\(\\) has parameter \\$bindings with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:findOrFail\(\) should return Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model but returns array\<static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\>\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\|null\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:getEagerLoads\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:fromQuery\(\) has parameter \$bindings with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:getMacro\\(\\) should return Closure but returns mixed\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:getEagerLoads\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:getModels\\(\\) should return array\\<Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\> but returns array\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:getMacro\(\) should return Closure but returns mixed\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:getRelation\\(\\) return type with generic class Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation does not specify its types\\: TRelatedModel$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:getModels\(\) should return array\<Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\> but returns array\<Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:getRelation\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation but returns mixed\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:getRelation\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\Relation does not specify its types\: TRelatedModel, TDeclaringModel, TResult$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:groupWhereSliceForScope\\(\\) has no return type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:groupWhereSliceForScope\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:groupWhereSliceForScope\\(\\) has parameter \\$whereSlice with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:groupWhereSliceForScope\(\) has parameter \$whereSlice with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:hydrate\\(\\) has parameter \\$items with no value type specified in iterable type iterable\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:hydrate\(\) has parameter \$items with no value type specified in iterable type iterable\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:newModelInstance\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:newModelInstance\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:orWhere\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:orWhere\(\) has parameter \$column with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:paginate\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:paginate\(\) has parameter \$columns with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:paginate\\(\\) return type with generic interface Illuminate\\\\Contracts\\\\Pagination\\\\LengthAwarePaginator does not specify its types\\: TItem$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:paginate\(\) return type with generic interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:parseWithRelations\\(\\) has parameter \\$relations with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:parseWithRelations\(\) has parameter \$relations with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:parseWithRelations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:parseWithRelations\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:pluck\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:pluck\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:relationsNestedUnder\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:relationsNestedUnder\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:scopes\\(\\) has parameter \\$scopes with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:scopes\(\) has parameter \$scopes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:setEagerLoads\\(\\) has parameter \\$eagerLoad with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:setEagerLoads\(\) has parameter \$eagerLoad with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:setModel\\(\\) has no return type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:setModel\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:setQuery\\(\\) has no return type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:setQuery\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:simplePaginate\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:simplePaginate\(\) has parameter \$columns with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:simplePaginate\\(\\) return type with generic interface Illuminate\\\\Contracts\\\\Pagination\\\\Paginator does not specify its types\\: TItem$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:simplePaginate\(\) return type with generic interface Illuminate\\Contracts\\Pagination\\Paginator does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:toBase\\(\\) should return Illuminate\\\\Database\\\\Query\\\\Builder but returns Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:toBase\(\) should return Illuminate\\Database\\Query\\Builder but returns Bavix\\LaravelClickHouse\\Database\\Query\\Builder\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:where\\(\\) has parameter \\$column with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:where\(\) has parameter \$column with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:get\\(\\) invoked with 1 parameter, 0 required\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Builder.php
-
-		-
-			message: "#^PHPDoc tag @param for parameter \\$query with type Illuminate\\\\Database\\\\Query\\\\Builder is incompatible with native type Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\.$#"
+			message: '#^PHPDoc tag @param for parameter \$query with type Illuminate\\Database\\Query\\Builder is incompatible with native type Bavix\\LaravelClickHouse\\Database\\Query\\Builder\.$#'
+			identifier: parameter.phpDocType
 			count: 2
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$array of function array_flip expects array\\<int\\|string\\>, mixed given\\.$#"
+			message: '#^Parameter \#1 \$array of function array_flip expects array\<int\|string\>, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$builder of method Illuminate\\\\Database\\\\Eloquent\\\\Scope\\:\\:apply\\(\\) expects Illuminate\\\\Database\\\\Eloquent\\\\Builder, Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder given\\.$#"
+			message: '#^Parameter \#1 \$builder of method Illuminate\\Database\\Eloquent\\Scope\:\:apply\(\) expects Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>, Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function call_user_func_array expects callable\\(\\)\\: mixed, Closure\\|null given\\.$#"
+			message: '#^Parameter \#1 \$column of method Tinderbox\\ClickhouseBuilder\\Query\\BaseBuilder\:\:where\(\) expects Closure\|string\|Tinderbox\\ClickhouseBuilder\\Query\\BaseBuilder\|Tinderbox\\ClickhouseBuilder\\Query\\TwoElementsLogicExpression, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Database/Eloquent/Builder.php
+
+		-
+			message: '#^Parameter \#1 \$model of method Illuminate\\Database\\Eloquent\\ModelNotFoundException\<Illuminate\\Database\\Eloquent\\Model\>\:\:setModel\(\) expects class\-string\<Illuminate\\Database\\Eloquent\\Model\>, class\-string\<Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\> given\.$#'
+			identifier: argument.type
 			count: 2
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$column of method Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\BaseBuilder\\:\\:where\\(\\) expects Closure\\|string\\|Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\BaseBuilder\\|Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\TwoElementsLogicExpression, mixed given\\.$#"
+			message: '#^Parameter \#1 \$name of method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setConnection\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$model of method Illuminate\\\\Database\\\\Eloquent\\\\ModelNotFoundException\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:setModel\\(\\) expects class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>, class\\-string\\<Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\> given\\.$#"
-			count: 2
-			path: src/Database/Eloquent/Builder.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setConnection\\(\\) expects string, string\\|null given\\.$#"
+			message: '#^Parameter \#1 \$relations of method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:parseWithRelations\(\) expects array, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$relations of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:parseWithRelations\\(\\) expects array, mixed given\\.$#"
+			message: '#^Parameter \#1 \$scope of method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:callScope\(\) expects callable\(\)\: mixed, array\{Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model, non\-falsy\-string\} given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$scope of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:callScope\\(\\) expects callable\\(\\)\\: mixed, array\\{Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model, non\\-falsy\\-string\\} given\\.$#"
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, array\<static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\>\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\|Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\)\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\<static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\>\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\|Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\)\\|null given\\.$#"
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, array\|Illuminate\\Contracts\\Support\\Arrayable given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, array\\|Illuminate\\\\Contracts\\\\Support\\\\Arrayable given\\.$#"
+			message: '#^Parameter \#2 \$boolean of method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:createNestedWhere\(\) expects string, TValue\|null given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#2 \\$boolean of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:createNestedWhere\\(\\) expects string, mixed given\\.$#"
+			message: '#^Parameter \#2 \$ids of method Illuminate\\Database\\Eloquent\\ModelNotFoundException\<Illuminate\\Database\\Eloquent\\Model\>\:\:setModel\(\) expects array\<int, int\|string\>\|int\|string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#2 \\$ids of method Illuminate\\\\Database\\\\Eloquent\\\\ModelNotFoundException\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:setModel\\(\\) expects array\\<int, int\\|string\\>\\|int\\|string, mixed given\\.$#"
+			message: '#^Parameter \#2 \$model of method Illuminate\\Database\\Eloquent\\Scope\:\:apply\(\) expects Illuminate\\Database\\Eloquent\\Model, Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#2 \\$model of method Illuminate\\\\Database\\\\Eloquent\\\\Scope\\:\\:apply\\(\\) expects Illuminate\\\\Database\\\\Eloquent\\\\Model, Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: '#^Parameter \#3 \$tables of method Tinderbox\\ClickhouseBuilder\\Integrations\\Laravel\\Connection\:\:select\(\) expects array, true given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Parameter \\#3 \\$tables of method Tinderbox\\\\ClickhouseBuilder\\\\Integrations\\\\Laravel\\\\Connection\\:\\:select\\(\\) expects array, true given\\.$#"
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:\$eagerLoad type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:\\$eagerLoad type has no value type specified in iterable type array\\.$#"
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:\$localMacros type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:\\$localMacros type has no value type specified in iterable type array\\.$#"
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:\$macros type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:\\$macros type has no value type specified in iterable type array\\.$#"
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:\$passthru type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:\\$passthru type has no value type specified in iterable type array\\.$#"
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:\$scopes type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:\\$scopes type has no value type specified in iterable type array\\.$#"
+			message: '#^Property Tinderbox\\ClickhouseBuilder\\Query\\BaseBuilder\:\:\$wheres \(array\<Tinderbox\\ClickhouseBuilder\\Query\\TwoElementsLogicExpression\>\) does not accept array\<array\|Tinderbox\\ClickhouseBuilder\\Query\\TwoElementsLogicExpression\>\.$#'
+			identifier: assign.propertyType
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Property Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\BaseBuilder\\:\\:\\$wheres \\(array\\<Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\TwoElementsLogicExpression\\>\\) does not accept array\\<array\\|Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\TwoElementsLogicExpression\\>\\.$#"
+			message: '#^Strict comparison using \=\=\= between Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model and null will always evaluate to false\\.$#"
+			message: '#^Strict comparison using \=\=\= between array and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Database/Eloquent/Builder.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Builder.php
-
-		-
-			message: "#^Cannot call method getKeyName\\(\\) on Illuminate\\\\Database\\\\Eloquent\\\\Model\\|null\\.$#"
+			message: '#^Class "Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection" is not allowed to extend "Illuminate\\Database\\Eloquent\\Collection"\.$#'
+			identifier: ergebnis.noExtends
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Class \"Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\" is not allowed to extend \"Illuminate\\\\Database\\\\Eloquent\\\\Collection\"\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection extends generic class Illuminate\\Database\\Eloquent\\Collection but does not specify its types\: TKey, TModel$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection extends generic class Illuminate\\\\Database\\\\Eloquent\\\\Collection but does not specify its types\\: TKey, TModel$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection is neither abstract nor final\.$#'
+			identifier: ergebnis.final
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection is neither abstract nor final\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\:\:find\(\) should return Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\) but returns mixed\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\:\\:find\\(\\) should return Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\) but returns mixed\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Collection\:\:map\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Collection\\:\\:map\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
+			message: '#^Parameter \#1 \$key of method Illuminate\\Support\\Collection\<\(int\|string\),Illuminate\\Database\\Eloquent\\Model\>\:\:contains\(\) expects \(callable\(Illuminate\\Database\\Eloquent\\Model, int\|string\)\: bool\)\|Illuminate\\Database\\Eloquent\\Model\|string, Closure\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\)\: bool given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Parameter \\#1 \\$key of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:contains\\(\\) expects \\(callable\\(Illuminate\\\\Database\\\\Eloquent\\\\Model, int\\|string\\)\\: bool\\)\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\|string, Closure\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\)\\: bool given\\.$#"
+			message: '#^Parameter \#1 \$key of method Illuminate\\Support\\Collection\<\(int\|string\),Illuminate\\Database\\Eloquent\\Model\>\:\:contains\(\) expects \(callable\(Illuminate\\Database\\Eloquent\\Model, int\|string\)\: bool\)\|Illuminate\\Database\\Eloquent\\Model\|string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Parameter \\#1 \\$key of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:contains\\(\\) expects \\(callable\\(Illuminate\\\\Database\\\\Eloquent\\\\Model, int\\|string\\)\\: bool\\)\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\|string, mixed given\\.$#"
+			message: '#^Parameter \#2 \$callback of static method Illuminate\\Support\\Arr\:\:first\(\) expects \(callable\(Illuminate\\Database\\Eloquent\\Model, int\|string\)\: bool\)\|null, Closure\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\)\: bool given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Parameter \\#2 \\$callback of static method Illuminate\\\\Support\\\\Arr\\:\\:first\\(\\) expects \\(callable\\(Illuminate\\\\Database\\\\Eloquent\\\\Model, int\\|string\\)\\: bool\\)\\|null, Closure\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\)\\: bool given\\.$#"
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
 			count: 1
 			path: src/Database/Eloquent/Collection.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: '#^Call to an undefined method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder\:\:withTrashed\(\)\.$#'
+			identifier: method.notFound
 			count: 1
-			path: src/Database/Eloquent/Collection.php
-
-		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Builder\\:\\:withTrashed\\(\\)\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation\\:\\:first\\(\\)\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation\\:\\:where\\(\\)\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Call to an undefined method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation\\:\\:withTrashed\\(\\)\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Call to an undefined static method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:insert\\(\\)\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model implements generic interface Illuminate\\\\Contracts\\\\Support\\\\Arrayable but does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Constructor in Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model has parameter \\$attributes with default value\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
-			count: 2
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__call\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__call\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__callStatic\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__callStatic\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__get\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__isset\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__set\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:__unset\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:all\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:boot\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:boot\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:bootIfNotBooted\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:bootIfNotBooted\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:bootTraits\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:bootTraits\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:childRouteBindingRelationshipName\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:clearBootedModels\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:clearBootedModels\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:fill\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:fill\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:forceFill\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:forceFill\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:forceFill\\(\\) should return \\$this\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\) but returns mixed\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getCasts\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getCasts\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getConnection\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getConnectionName\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getConnectionResolver\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getDateFormat\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getDates\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getDates\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getForeignKey\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getKey\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getKeyName\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getKeyType\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getPerPage\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getQualifiedKeyName\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getRouteKey\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getRouteKeyName\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getTable\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:jsonSerialize\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newBaseQueryBuilder\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newCollection\\(\\) has parameter \\$models with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newCollection\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newEloquentBuilder\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newFromBuilder\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newFromBuilder\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newInstance\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newInstance\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newQuery\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newQueryWithoutScope\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newQueryWithoutScope\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:newQueryWithoutScopes\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:offsetExists\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:offsetGet\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:offsetSet\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:offsetUnset\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:preventsAccessingMissingAttributes\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:query\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:removeTableFromKey\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:removeTableFromKey\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveChildRouteBinding\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveChildRouteBindingQuery\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveChildRouteBindingQuery\\(\\) return type with generic class Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation does not specify its types\\: TRelatedModel$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveConnection\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveRouteBinding\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveRouteBinding\\(\\) should return Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\|null but returns object\\|null\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveRouteBindingQuery\\(\\) has parameter \\$query with generic class Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\Relation but does not specify its types\\: TRelatedModel$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveRouteBindingQuery\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveSoftDeletableChildRouteBinding\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:resolveSoftDeletableRouteBinding\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:save\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:save\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setConnection\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setConnectionResolver\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setKeyName\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setKeyType\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
-			path: src/Database/Eloquent/Model.php
-
-		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setPerPage\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
-			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setTable\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
+			message: '#^Call to an undefined method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|Illuminate\\Database\\Eloquent\\Relations\\Relation\:\:first\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:toArray\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
+			message: '#^Call to an undefined method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|Illuminate\\Database\\Eloquent\\Relations\\Relation\:\:where\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:toJson\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
+			message: '#^Call to an undefined method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|Illuminate\\Database\\Eloquent\\Relations\\Relation\:\:withTrashed\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:toJson\\(\\) should return string but returns string\\|false\\.$#"
+			message: '#^Call to an undefined static method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:insert\(\)\.$#'
+			identifier: staticMethod.notFound
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:with\\(\\) has parameter \\$relations with no value type specified in iterable type array\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model implements generic interface ArrayAccess but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:with\\(\\) is not final, but since the containing class is abstract, it should be\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model implements generic interface Illuminate\\Contracts\\Support\\Arrayable but does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of function forward_static_call expects callable\\(\\)\\: mixed, array\\{class\\-string\\<static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\)\\>, non\\-falsy\\-string\\} given\\.$#"
+			message: '#^Constructor in Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model has parameter \$attributes with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Parameter \\#1 \\$key of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:getAttribute\\(\\) expects string, mixed given\\.$#"
+			message: '#^Language construct isset\(\) should not be used\.$#'
+			identifier: ergebnis.noIsset
 			count: 2
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Parameter \\#1 \\$key of method Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:setAttribute\\(\\) expects string, mixed given\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__call\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$booted type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__call\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts \\(array\\) on left side of \\?\\? is not nullable\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__callStatic\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$dateFormat \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__callStatic\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__construct\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$with type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__get\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Property Bavix\\\\LaravelClickHouse\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$withCount type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__isset\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
 			count: 1
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__set\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:__unset\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:all\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:boot\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:boot\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:bootIfNotBooted\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:bootIfNotBooted\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:bootTraits\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:bootTraits\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:childRouteBindingRelationshipName\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:clearBootedModels\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:clearBootedModels\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:fill\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:fill\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:forceFill\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:forceFill\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:forceFill\(\) should return \$this\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\) but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getCasts\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getCasts\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getConnection\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getConnectionName\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getConnectionResolver\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getDateFormat\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getDates\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getDates\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getForeignKey\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getKey\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getKeyName\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getKeyType\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getPerPage\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getQualifiedKeyName\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getRouteKey\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getRouteKeyName\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getTable\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:jsonSerialize\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:jsonSerialize\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newBaseQueryBuilder\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newCollection\(\) has parameter \$models with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newCollection\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newEloquentBuilder\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newFromBuilder\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newFromBuilder\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newInstance\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newInstance\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newQuery\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newQueryWithoutScope\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newQueryWithoutScope\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:newQueryWithoutScopes\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:offsetExists\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:offsetGet\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:offsetSet\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:offsetUnset\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:preventsAccessingMissingAttributes\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:query\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:removeTableFromKey\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:removeTableFromKey\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveChildRouteBinding\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveChildRouteBinding\(\) should return Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|null but returns Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveChildRouteBindingQuery\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveChildRouteBindingQuery\(\) return type with generic class Illuminate\\Database\\Eloquent\\Relations\\Relation does not specify its types\: TRelatedModel, TDeclaringModel, TResult$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveConnection\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveRouteBinding\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveRouteBinding\(\) should return Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveRouteBindingQuery\(\) has parameter \$query with generic class Illuminate\\Database\\Eloquent\\Relations\\Relation but does not specify its types\: TRelatedModel, TDeclaringModel, TResult$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveRouteBindingQuery\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveRouteBindingQuery\(\) should return Bavix\\LaravelClickHouse\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Eloquent\\Relations\\Relation\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveSoftDeletableChildRouteBinding\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:resolveSoftDeletableRouteBinding\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:save\(\) has parameter \$options with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:save\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setConnection\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setConnectionResolver\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setKeyName\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setKeyType\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setPerPage\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setTable\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:toArray\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:toJson\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:toJson\(\) should return string but returns string\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:whenBooted\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:whenBooted\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:with\(\) has parameter \$relations with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:with\(\) is not final, but since the containing class is abstract, it should be\.$#'
+			identifier: ergebnis.finalInAbstractClass
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Parameter \#1 \$callback of function forward_static_call expects callable\(\)\: mixed, array\{class\-string\<static\(Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\)\>, non\-falsy\-string\} given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Parameter \#1 \$key of method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:getAttribute\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Parameter \#1 \$key of method Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:setAttribute\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:\$booted type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:\$casts \(array\) on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.property
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:\$table \(string\) in isset\(\) is not nullable\.$#'
+			identifier: isset.property
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:\$with type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Property Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model\:\:\$withCount type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Trait Illuminate\\Database\\Eloquent\\Concerns\\HasRelationships requires using class to extend Illuminate\\Database\\Eloquent\\Model, but Bavix\\LaravelClickHouse\\Database\\Eloquent\\Model does not\.$#'
+			identifier: class.missingExtends
+			count: 1
+			path: src/Database/Eloquent/Model.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
 			count: 5
 			path: src/Database/Eloquent/Model.php
 
 		-
-			message: "#^Cannot access offset 'count' on mixed\\.$#"
+			message: '#^Cannot access offset ''count'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Cannot call method getTable\\(\\) on Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\From\\|null\\.$#"
+			message: '#^Cannot call method getTable\(\) on Tinderbox\\ClickhouseBuilder\\Query\\From\|null\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Cannot cast mixed to int\\.$#"
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
 			count: 2
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Class \"Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\" is not allowed to extend \"Tinderbox\\\\ClickhouseBuilder\\\\Query\\\\BaseBuilder\"\\.$#"
+			message: '#^Class "Bavix\\LaravelClickHouse\\Database\\Query\\Builder" is not allowed to extend "Tinderbox\\ClickhouseBuilder\\Query\\BaseBuilder"\.$#'
+			identifier: ergebnis.noExtends
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Class Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder is neither abstract nor final\\.$#"
+			message: '#^Class Bavix\\LaravelClickHouse\\Database\\Query\\Builder is neither abstract nor final\.$#'
+			identifier: ergebnis.final
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:forPage\\(\\) should return \\$this\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\) but returns static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\)\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:forPage\(\) should return \$this\(Bavix\\LaravelClickHouse\\Database\\Query\\Builder\) but returns static\(Bavix\\LaravelClickHouse\\Database\\Query\\Builder\)\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:get\\(\\) return type with generic class Illuminate\\\\Support\\\\Collection does not specify its types\\: TKey, TValue$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:get\(\) return type with generic class Illuminate\\Support\\Collection does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:getCountForPagination\\(\\) has no return type specified\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:getCountForPagination\(\) has no return type specified\.$#'
+			identifier: missingType.return
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:insert\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:insert\(\) has parameter \$values with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:insertFiles\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:insertFiles\(\) has parameter \$columns with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:insertFiles\\(\\) has parameter \\$files with no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:insertFiles\(\) has parameter \$files with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Method Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\:\\:insertFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: '#^Method Bavix\\LaravelClickHouse\\Database\\Query\\Builder\:\:insertFiles\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Parameter \\#1 \\$table of method Tinderbox\\\\ClickhouseBuilder\\\\Integrations\\\\Laravel\\\\Connection\\:\\:table\\(\\) expects Closure\\|string\\|Tinderbox\\\\ClickhouseBuilder\\\\Integrations\\\\Laravel\\\\Builder, static\\(Bavix\\\\LaravelClickHouse\\\\Database\\\\Query\\\\Builder\\) given\\.$#"
+			message: '#^Parameter \#1 \$table of method Tinderbox\\ClickhouseBuilder\\Integrations\\Laravel\\Connection\:\:table\(\) expects Closure\|string\|Tinderbox\\ClickhouseBuilder\\Integrations\\Laravel\\Builder, static\(Bavix\\LaravelClickHouse\\Database\\Query\\Builder\) given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Database/Query/Builder.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
 			count: 1
 			path: src/Database/Query/Builder.php
