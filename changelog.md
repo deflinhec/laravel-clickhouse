@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.5 - 2025-05-27
+
+### What's Changed
+
+* req bavix/clickhouse-php-client by [@rez1dent3](https://github.com/rez1dent3) in https://github.com/bavix/laravel-clickhouse/pull/15
+
+**Full Changelog**: https://github.com/bavix/laravel-clickhouse/compare/3.0.4...3.0.5
+
 ## 3.0.3 - 2024-04-01
 
 ### What's Changed
