@@ -7,6 +7,7 @@ namespace Bavix\LaravelClickHouse\Database\Eloquent;
 use ArrayAccess;
 use Bavix\LaravelClickHouse\Database\Connection;
 use Bavix\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
+use Closure;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Contracts\Support\Arrayable;
@@ -624,6 +625,10 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     public static function preventsAccessingMissingAttributes(): bool
     {
         return static::$modelsShouldPreventAccessingMissingAttributes;
+    }
+
+    protected static function whenBooted(Closure $callback)
+    {
     }
 
     protected function resolveChildRouteBindingQuery(
