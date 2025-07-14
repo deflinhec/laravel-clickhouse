@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Database\Eloquent\Concerns;
+namespace Deflinhec\LaravelClickHouse\Database\Eloquent\Concerns;
 
 use Illuminate\Database\Eloquent\Concerns\HasAttributes as BaseHasAttributes;
 
@@ -20,7 +20,7 @@ trait HasAttributes
         return $this->casts ?? [];
     }
 
-    protected function getDateFormat(): string
+    public function getDateFormat(): string
     {
         return $this->dateFormat ?? 'Y-m-d H:i:s';
     }

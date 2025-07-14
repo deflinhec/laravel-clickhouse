@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Database\Query;
+namespace Deflinhec\LaravelClickHouse\Database\Query;
 
-use Bavix\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Database\Connection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
@@ -19,9 +19,9 @@ class Builder extends BaseBuilder
         __call as macroCall;
     }
 
-    protected Connection $connection;
+    protected $connection;
 
-    public function __construct(Connection $connection, Grammar $grammar)
+    public function __construct($connection, $grammar)
     {
         $this->connection = $connection;
         $this->grammar = $grammar;
@@ -32,7 +32,7 @@ class Builder extends BaseBuilder
      *
      * @throws \Tinderbox\Clickhouse\Exceptions\ClientException
      */
-    public function get(): Collection
+    public function get()
     {
         if ($this->async !== []) {
             $result = $this->connection->selectAsync($this->toAsyncSqls());
@@ -51,7 +51,7 @@ class Builder extends BaseBuilder
      *
      * @throws \Tinderbox\Clickhouse\Exceptions\ClientException
      */
-    public function count($column = '*'): int
+    public function count($column = '*')
     {
         $builder = $this->getCountQuery();
         $result = $builder->get();
@@ -79,7 +79,7 @@ class Builder extends BaseBuilder
     /**
      * Makes clean instance of builder.
      */
-    public function newQuery(): self
+    public function newQuery()
     {
         return new static($this->connection, $this->grammar);
     }
@@ -89,7 +89,7 @@ class Builder extends BaseBuilder
      *
      * @throws \Tinderbox\Clickhouse\Exceptions\ClientException
      */
-    public function insertFiles(array $columns, array $files, string $format = Format::CSV, int $concurrency = 5): array
+    public function insertFiles($columns, $files, $format = 'CSV', $concurrency = 5)
     {
         return $this->connection->insertFiles(
             (string) $this->getFrom()
@@ -104,7 +104,7 @@ class Builder extends BaseBuilder
     /**
      * Performs insert query.
      */
-    public function insert(array $values): bool
+    public function insert($values)
     {
         if ($values === []) {
             return false;
@@ -151,7 +151,7 @@ class Builder extends BaseBuilder
         return $this->limit($perPage, ($page - 1) * $perPage);
     }
 
-    public function getConnection(): Connection
+    public function getConnection()
     {
         return $this->connection;
     }

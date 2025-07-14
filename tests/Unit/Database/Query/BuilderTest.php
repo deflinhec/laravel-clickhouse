@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests\Unit\Database\Query;
+namespace Deflinhec\LaravelClickHouse\Tests\Unit\Database\Query;
 
-use Bavix\LaravelClickHouse\Database\Connection;
-use Bavix\LaravelClickHouse\Database\Query\Builder;
-use Bavix\LaravelClickHouse\Tests\Helpers;
+use Deflinhec\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Database\Query\Builder;
+use Deflinhec\LaravelClickHouse\Tests\Helpers;
 use Illuminate\Support\Collection;
 use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
@@ -24,9 +24,9 @@ class BuilderTest extends TestCase
     /**
      * @var MockInterface&Connection
      */
-    private MockInterface $connection;
+    private $connection;
 
-    private Builder $builder;
+    private $builder;
 
     protected function setUp(): void
     {

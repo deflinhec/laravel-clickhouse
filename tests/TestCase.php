@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests;
+namespace Deflinhec\LaravelClickHouse\Tests;
 
-use Bavix\LaravelClickHouse\ClickHouseServiceProvider;
+use Deflinhec\LaravelClickHouse\ClickHouseServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -15,10 +15,10 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function getEnvironmentSetUp($app): void
     {
-        $app['config']->set('database.connections.bavix::clickhouse', [
+        $app['config']->set('database.connections.clickhouse', [
             'host' => env('CLICKHOUSE_HOST', 'localhost'),
             'port' => env('CLICKHOUSE_PORT', '8123'),
-            'driver' => env('CLICKHOUSE_DRIVER', 'bavix::clickhouse'),
+            'driver' => env('CLICKHOUSE_DRIVER', 'clickhouse'),
             'database' => env('CLICKHOUSE_DATABASE', 'default'),
             'username' => env('CLICKHOUSE_USERNAME', 'default'),
             'password' => env('CLICKHOUSE_PASSWORD', ''),

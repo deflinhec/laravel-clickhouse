@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse;
+namespace Deflinhec\LaravelClickHouse;
 
-use Bavix\LaravelClickHouse\Database\Connection;
-use Bavix\LaravelClickHouse\Database\Eloquent\Model;
-use Bavix\LaravelClickHouse\Database\Query\Pdo;
-use Bavix\LaravelClickHouse\Database\Query\PdoInterface;
+use Deflinhec\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Database\Eloquent\Model;
+use Deflinhec\LaravelClickHouse\Database\Query\Pdo;
+use Deflinhec\LaravelClickHouse\Database\Query\PdoInterface;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,7 +26,7 @@ class ClickHouseServiceProvider extends ServiceProvider
     {
         $this->app->singleton(PdoInterface::class, Pdo::class);
         $this->app->resolving('db', static function (DatabaseManager $db) {
-            $db->extend('bavix::clickhouse', static function ($config, $name) {
+            $db->extend('clickhouse', static function ($config, $name) {
                 return new Connection(\array_merge($config, [
                     'name' => $name,
                 ]));

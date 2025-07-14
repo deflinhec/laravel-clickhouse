@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Database\Eloquent;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection as SupportCollection;
@@ -42,7 +42,7 @@ class Collection extends \Illuminate\Database\Eloquent\Collection
      * @param mixed $operator
      * @param mixed $value
      */
-    public function contains($key, $operator = null, $value = null): bool
+    public function contains($key, $operator = null, $value = null)
     {
         if (func_num_args() > 1 || $this->useAsCallable($key)) {
             return SupportCollection::contains(...func_get_args());

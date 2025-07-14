@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Database\Eloquent;
 
 use BadMethodCallException;
-use Bavix\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
+use Deflinhec\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
 use Closure;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Support\Arrayable;
@@ -20,9 +20,9 @@ use Illuminate\Support\Str;
 use Tinderbox\Clickhouse\Exceptions\ClientException;
 
 /**
- * @mixin QueryBuilder
+ * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Builder
+class Builder 
 {
     use BuildsQueries;
 
@@ -36,7 +36,7 @@ class Builder
     /**
      * The model being queried.
      *
-     * @var Model
+     * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
 
@@ -86,7 +86,7 @@ class Builder
      */
     protected $scopes = [];
 
-    public function __construct(QueryBuilder $query)
+    public function __construct($query)
     {
         $this->query = $query;
     }
@@ -212,7 +212,7 @@ class Builder
      * @param mixed                 $value
      * @return $this
      */
-    public function where($column, $operator = null, $value = null, string $boolean = 'AND'): self
+    public function where($column, $operator = null, $value = null, $boolean = 'AND')
     {
         if ($column instanceof Closure) {
             $this->query->where(function (QueryBuilder $queryBuilder) use ($column) {
@@ -242,7 +242,7 @@ class Builder
     /**
      * Create a collection of models from plain arrays.
      */
-    public function hydrate(iterable $items): Collection
+    public function hydrate($items)
     {
         $instance = $this->newModelInstance();
         $elements = [];
@@ -259,7 +259,7 @@ class Builder
      * @param string $query
      * @param array  $bindings
      */
-    public function fromQuery($query, $bindings = []): Collection
+    public function fromQuery($query, $bindings = array())
     {
         return $this->hydrate($this->query->getConnection()->select($query, $bindings, true));
     }
@@ -285,7 +285,7 @@ class Builder
      *
      * @param Arrayable|array $ids
      */
-    public function findMany($ids): Collection
+    public function findMany($ids)
     {
         if (count($ids) < 1) {
             return $this->model->newCollection();
@@ -324,7 +324,7 @@ class Builder
      *
      * @throws ModelNotFoundException
      */
-    public function firstOrFail(): ?Model
+    public function firstOrFail()
     {
         /** @var Model $model */
         $model = $this->first();
@@ -341,7 +341,7 @@ class Builder
      *
      * @throws ClientException
      */
-    public function get(): Collection
+    public function get()
     {
         $builder = $this->applyScopes();
 
@@ -363,7 +363,7 @@ class Builder
      *
      * @throws ClientException
      */
-    public function getModels(): array
+    public function getModels()
     {
         $result = $this->query->get()
             ->all();
@@ -375,7 +375,7 @@ class Builder
     /**
      * Eager load the relationships for the models.
      */
-    public function eagerLoadRelations(array $models): array
+    public function eagerLoadRelations($models)
     {
         foreach ($this->eagerLoad as $name => $constraints) {
             // For nested eager loads we'll skip loading them here and they will be set as an
@@ -392,7 +392,7 @@ class Builder
     /**
      * Get the relation instance for the given relation name.
      */
-    public function getRelation(string $name): Relation
+    public function getRelation($name)
     {
         // We want to run a relationship query without any constrains so that we will
         // not have to remove these where clauses manually which gets really hacky
@@ -424,7 +424,7 @@ class Builder
      *
      * @param string|null $alias
      */
-    public function chunkById(int $count, callable $callback, $column = null, $alias = null): bool
+    public function chunkById($count, $callback, $column = null, $alias = null)
     {
         $column = $column === null ? $this->getModel()
             ->getKeyName() : $column;
@@ -658,7 +658,7 @@ class Builder
         });
     }
 
-    public function getQuery(): QueryBuilder
+    public function getQuery()
     {
         return $this->query;
     }
@@ -703,7 +703,10 @@ class Builder
         return $this;
     }
 
-    public function getModel(): Model
+    /**
+     * @return Model
+     */
+    public function getModel()
     {
         return $this->model;
     }

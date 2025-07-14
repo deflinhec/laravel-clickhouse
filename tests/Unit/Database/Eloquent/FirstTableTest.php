@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests\Unit\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Tests\Unit\Database\Eloquent;
 
-use Bavix\LaravelClickHouse\Database\Connection;
-use Bavix\LaravelClickHouse\Tests\FirstTableEntry;
-use Bavix\LaravelClickHouse\Tests\TestCase;
+use Deflinhec\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Tests\FirstTableEntry;
+use Deflinhec\LaravelClickHouse\Tests\TestCase;
 
 class FirstTableTest extends TestCase
 {
@@ -18,7 +18,7 @@ class FirstTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->connection = $this->getConnection('bavix::clickhouse');
+        $this->connection = $this->getConnection('clickhouse');
     }
 
     public function testPaginate(): void

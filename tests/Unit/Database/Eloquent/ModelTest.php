@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests\Unit\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Tests\Unit\Database\Eloquent;
 
-use Bavix\LaravelClickHouse\Tests\BaseEloquentModel;
-use Bavix\LaravelClickHouse\Tests\BaseEloquentModelCasting;
-use Bavix\LaravelClickHouse\Tests\BaseEloquentModelWith;
-use Bavix\LaravelClickHouse\Tests\Helpers;
+use Deflinhec\LaravelClickHouse\Tests\BaseEloquentModel;
+use Deflinhec\LaravelClickHouse\Tests\BaseEloquentModelCasting;
+use Deflinhec\LaravelClickHouse\Tests\BaseEloquentModelWith;
+use Deflinhec\LaravelClickHouse\Tests\Helpers;
 use Illuminate\Database\Eloquent\MassAssignmentException;
 use Illuminate\Support\Carbon;
 use PHPUnit\Framework\TestCase;
@@ -88,9 +88,9 @@ class ModelTest extends TestCase
     {
         $datetime = '2012-12-04';
         $model = new BaseEloquentModelCasting();
-        $model->payed_at = $datetime;
+        $model->paid_at = $datetime;
 
-        self::assertInstanceOf(Carbon::class, $model->payed_at);
-        self::assertSame($datetime.' 00:00:00', $model->payed_at->toDateTimeString());
+        self::assertInstanceOf(Carbon::class, $model->paid_at);
+        self::assertSame($datetime.' 00:00:00', $model->paid_at->toDateTimeString());
     }
 }

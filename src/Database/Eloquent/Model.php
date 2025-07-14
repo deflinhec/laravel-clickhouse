@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Database\Eloquent;
 
 use ArrayAccess;
-use Bavix\LaravelClickHouse\Database\Connection;
-use Bavix\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
+use Deflinhec\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
 use Closure;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Routing\UrlRoutable;
@@ -28,7 +28,8 @@ use Illuminate\Support\Str;
 use JsonSerializable;
 use Tinderbox\ClickhouseBuilder\Query\Grammar;
 
-abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, JsonSerializable
+abstract class Model extends \Illuminate\Database\Eloquent\Model 
+implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, JsonSerializable
 {
     use Concerns\HasAttributes;
     use Concerns\Common;
@@ -40,9 +41,9 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Indicates if the model exists.
      */
-    public bool $exists = false;
+    public $exists = false;
 
-    public bool $wasRecentlyCreated = false;
+    public $wasRecentlyCreated = false;
 
     /**
      * Indicates if an exception should be thrown when trying to access a missing attribute on a retrieved model.
@@ -56,7 +57,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @var string
      */
-    protected $connection = 'bavix::clickhouse';
+    protected $connection = 'clickhouse';
 
     /**
      * The table associated with the model.
@@ -100,9 +101,9 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      */
     protected $perPage = 15;
 
-    protected static ConnectionResolverInterface $resolver;
+    protected static $resolver;
 
-    protected static Dispatcher $dispatcher;
+    protected static $dispatcher;
 
     /**
      * The array of booted models.
@@ -264,7 +265,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @return static
      */
-    public function newFromBuilder(array $attributes = [], string $connection = null)
+    public function newFromBuilder($attributes = array(), $connection = null)
     {
         $model = $this->newInstance([], true);
 
@@ -284,10 +285,10 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @return Collection|static[]
      */
-    public static function all()
+    public static function all($columns = ['*'])
     {
         return (new static())->newQuery()
-            ->get();
+            ->get($columns);
     }
 
     /**
@@ -302,17 +303,17 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
             ->with(is_string($relations) ? func_get_args() : $relations);
     }
 
-    public static function query(): Builder
+    public static function query()
     {
         return (new static())->newQuery();
     }
 
-    public function newQuery(): Builder
+    public function newQuery()
     {
         return $this->newQueryWithoutScopes();
     }
 
-    public function newQueryWithoutScopes(): Builder
+    public function newQueryWithoutScopes()
     {
         $builder = $this->newEloquentBuilder($this->newBaseQueryBuilder());
 
@@ -323,12 +324,12 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
             ->with($this->with);
     }
 
-    public function newQueryWithoutScope()
+    public function newQueryWithoutScope($scope = null)
     {
         return $this->newQuery();
     }
 
-    public function newEloquentBuilder(QueryBuilder $query): Builder
+    public function newEloquentBuilder($query)
     {
         return new Builder($query);
     }
@@ -336,7 +337,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Create a new Eloquent Collection instance.
      */
-    public function newCollection(array $models = []): Collection
+    public function newCollection($models = array())
     {
         return new Collection($models);
     }
@@ -344,7 +345,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Convert the model instance to an array.
      */
-    public function toArray(): array
+    public function toArray()
     {
         return $this->attributesToArray();
     }
@@ -356,7 +357,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @throws JsonEncodingException
      */
-    public function toJson($options = 0): string
+    public function toJson($options = 0)
     {
         $json = json_encode($this->jsonSerialize(), $options);
 
@@ -369,8 +370,11 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
 
     /**
      * Convert the object into something JSON serializable.
+     *
+     * @return array
      */
-    public function jsonSerialize(): array
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         return $this->toArray();
     }
@@ -378,7 +382,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the database connection for the model.
      */
-    public function getConnection(): ConnectionInterface
+    public function getConnection()
     {
         return static::resolveConnection($this->getConnectionName());
     }
@@ -386,7 +390,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the current connection name for the model.
      */
-    public function getConnectionName(): string
+    public function getConnectionName()
     {
         return $this->connection;
     }
@@ -396,7 +400,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @return $this
      */
-    public function setConnection(string $name)
+    public function setConnection($name)
     {
         $this->connection = $name;
 
@@ -406,7 +410,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Resolve a connection instance.
      */
-    public static function resolveConnection(string $connection = null): ConnectionInterface
+    public static function resolveConnection($connection = null)
     {
         return static::getConnectionResolver()->connection($connection);
     }
@@ -414,7 +418,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the connection resolver instance.
      */
-    public static function getConnectionResolver(): ConnectionResolverInterface
+    public static function getConnectionResolver()
     {
         return static::$resolver;
     }
@@ -422,7 +426,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Set the connection resolver instance.
      */
-    public static function setConnectionResolver(Resolver $resolver): void
+    public static function setConnectionResolver($resolver)
     {
         static::$resolver = $resolver;
     }
@@ -430,7 +434,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the table associated with the model.
      */
-    public function getTable(): string
+    public function getTable()
     {
         if (! isset($this->table)) {
             $this->setTable(str_replace('\\', '', Str::snake(Str::plural(class_basename($this)))));
@@ -444,27 +448,27 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @return $this
      */
-    public function setTable(string $table): self
+    public function setTable($table)
     {
         $this->table = $table;
 
         return $this;
     }
 
-    public function resolveRouteBinding($value, $field = null): ?Model
+    public function resolveRouteBinding($value, $field = null)
     {
         return $this->resolveRouteBindingQuery($this, $value, $field)
             ->first();
     }
 
-    public function resolveSoftDeletableRouteBinding(mixed $value, ?string $field = null): ?Model
+    public function resolveSoftDeletableRouteBinding($value, $field = null)
     {
         return $this->resolveRouteBindingQuery($this, $value, $field)
             ->withTrashed()
             ->first();
     }
 
-    public function resolveChildRouteBinding($childType, $value, $field): ?Model
+    public function resolveChildRouteBinding($childType, $value, $field)
     {
         return $this->resolveChildRouteBindingQuery($childType, $value, $field)
             ->first();
@@ -474,13 +478,13 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
         string $childType,
         mixed $value,
         ?string $field = null
-    ): ?Model {
+    ) {
         return $this->resolveChildRouteBindingQuery($childType, $value, $field)
             ->withTrashed()
             ->first();
     }
 
-    public function resolveRouteBindingQuery(Relation|Model $query, mixed $value, ?string $field = null): Builder
+    public function resolveRouteBindingQuery($query, $value, $field = null)
     {
         return $query->where($field ?? $this->getRouteKeyName(), $value);
     }
@@ -488,7 +492,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the primary key for the model.
      */
-    public function getKeyName(): string
+    public function getKeyName()
     {
         return $this->primaryKey;
     }
@@ -498,7 +502,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @return $this
      */
-    public function setKeyName(string $key): self
+    public function setKeyName($key)
     {
         $this->primaryKey = $key;
 
@@ -508,7 +512,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the table qualified key name.
      */
-    public function getQualifiedKeyName(): string
+    public function getQualifiedKeyName()
     {
         return $this->getTable().'.'.$this->getKeyName();
     }
@@ -516,7 +520,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the pk key type.
      */
-    public function getKeyType(): string
+    public function getKeyType()
     {
         return $this->keyType;
     }
@@ -526,19 +530,19 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @return $this
      */
-    public function setKeyType(string $type)
+    public function setKeyType($type)
     {
         $this->keyType = $type;
 
         return $this;
     }
 
-    public function getRouteKey(): mixed
+    public function getRouteKey()
     {
         return $this->getAttribute($this->getRouteKeyName());
     }
 
-    public function getRouteKeyName(): string
+    public function getRouteKeyName()
     {
         return $this->getKeyName();
     }
@@ -556,7 +560,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the default foreign key name for the model.
      */
-    public function getForeignKey(): string
+    public function getForeignKey()
     {
         return Str::snake(class_basename($this)).'_'.$this->primaryKey;
     }
@@ -564,7 +568,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Get the number of models to return per page.
      */
-    public function getPerPage(): int
+    public function getPerPage()
     {
         return $this->perPage;
     }
@@ -572,7 +576,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
     /**
      * Set the number of models to return per page.
      */
-    public function setPerPage(int $perPage): static
+    public function setPerPage($perPage)
     {
         $this->perPage = $perPage;
 
@@ -583,8 +587,10 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      * Determine if the given attribute exists.
      *
      * @param mixed $offset
+     * @return bool
      */
-    public function offsetExists($offset): bool
+    #[\ReturnTypeWillChange]
+    public function offsetExists($offset)
     {
         return $this->getAttribute($offset) !== null;
     }
@@ -606,8 +612,10 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      *
      * @param mixed $offset
      * @param mixed $value
+     * @return void
      */
-    public function offsetSet($offset, $value): void
+    #[\ReturnTypeWillChange]
+    public function offsetSet($offset, $value)
     {
         $this->setAttribute($offset, $value);
     }
@@ -616,18 +624,20 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
      * Unset the value for a given offset.
      *
      * @param mixed $offset
+     * @return void
      */
-    public function offsetUnset($offset): void
+    #[\ReturnTypeWillChange]
+    public function offsetUnset($offset)
     {
         unset($this->attributes[$offset]);
     }
 
-    public static function preventsAccessingMissingAttributes(): bool
+    public static function preventsAccessingMissingAttributes()
     {
         return static::$modelsShouldPreventAccessingMissingAttributes;
     }
 
-    protected static function whenBooted(Closure $callback)
+    protected function whenBooted($callback)
     {
     }
 
@@ -635,7 +645,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
         string $childType,
         mixed $value,
         ?string $field = null
-    ): Relation|Model {
+    ) {
         $relationship = $this->{$this->childRouteBindingRelationshipName($childType)}();
 
         $field = $field !== null && $field !== '' && $field !== '0' ? $field : $relationship->getRelated()
@@ -653,7 +663,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
                 ->resolveRouteBindingQuery($relationship, $value, $field);
     }
 
-    protected function childRouteBindingRelationshipName(string $childType): string
+    protected function childRouteBindingRelationshipName($childType)
     {
         return Str::plural(Str::camel($childType));
     }
@@ -707,7 +717,7 @@ abstract class Model implements ArrayAccess, UrlRoutable, Arrayable, Jsonable, J
         return Str::contains($key, '.') ? last(explode('.', $key)) : $key;
     }
 
-    protected function newBaseQueryBuilder(): QueryBuilder
+    protected function newBaseQueryBuilder()
     {
         /** @var Connection $connection */
         $connection = $this->getConnection();

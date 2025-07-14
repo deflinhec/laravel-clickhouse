@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests;
+namespace Deflinhec\LaravelClickHouse\Tests;
 
 use Faker\Factory;
 use Faker\Generator;

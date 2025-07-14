@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests\Unit\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Tests\Unit\Database\Eloquent;
 
-use Bavix\LaravelClickHouse\Database\Connection;
-use Bavix\LaravelClickHouse\Database\Eloquent\Builder;
-use Bavix\LaravelClickHouse\Database\Eloquent\Collection;
-use Bavix\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
-use Bavix\LaravelClickHouse\Tests\BaseEloquentModelCasting;
-use Bavix\LaravelClickHouse\Tests\Helpers;
+use Deflinhec\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Database\Eloquent\Builder;
+use Deflinhec\LaravelClickHouse\Database\Eloquent\Collection;
+use Deflinhec\LaravelClickHouse\Database\Query\Builder as QueryBuilder;
+use Deflinhec\LaravelClickHouse\Tests\BaseEloquentModelCasting;
+use Deflinhec\LaravelClickHouse\Tests\Helpers;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Mockery\Mock;
@@ -33,11 +33,11 @@ class BuilderTest extends TestCase
     /**
      * @var MockInterface&Connection
      */
-    private MockInterface $connection;
+    private $connection;
 
-    private Builder $builder;
+    private $builder;
 
-    private BaseEloquentModelCasting $model;
+    private $model;
 
     protected function setUp(): void
     {

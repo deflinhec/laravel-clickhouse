@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests\Unit\Database\Eloquent;
+namespace Deflinhec\LaravelClickHouse\Tests\Unit\Database\Eloquent;
 
-use Bavix\LaravelClickHouse\Database\Connection;
-use Bavix\LaravelClickHouse\Database\Eloquent\Collection;
-use Bavix\LaravelClickHouse\Database\Query\Builder;
-use Bavix\LaravelClickHouse\Tests\BaseEloquentModelCasting;
-use Bavix\LaravelClickHouse\Tests\Helpers;
+use Deflinhec\LaravelClickHouse\Database\Connection;
+use Deflinhec\LaravelClickHouse\Database\Eloquent\Collection;
+use Deflinhec\LaravelClickHouse\Database\Query\Builder;
+use Deflinhec\LaravelClickHouse\Tests\BaseEloquentModelCasting;
+use Deflinhec\LaravelClickHouse\Tests\Helpers;
 use Carbon\Carbon;
 use Illuminate\Database\DatabaseManager;
 use Mockery\Mock;
@@ -25,9 +25,9 @@ class CollectionTest extends TestCase
     /**
      * @var MockInterface&Connection
      */
-    private MockInterface $connection;
+    private $connection;
 
-    private Builder $builder;
+    private $builder;
 
     protected function setUp(): void
     {
@@ -112,7 +112,9 @@ class CollectionTest extends TestCase
         });
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProvider('findDataProvider')]
+    /**
+     * @dataProvider findDataProvider
+     */
     public function testFind($key): void
     {
         $connectionResult = collect()
@@ -136,7 +138,9 @@ class CollectionTest extends TestCase
         }
     }
 
-    #[\PHPUnit\Framework\Attributes\DataProvider('containsDataProvider')]
+    /**
+     * @dataProvider containsDataProvider
+     */
     public function testContains(bool $expected, $key, $operator = null, $value = null): void
     {
         $connectionResult = collect()

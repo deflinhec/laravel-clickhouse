@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Bavix\LaravelClickHouse\Tests;
+namespace Deflinhec\LaravelClickHouse\Tests;
 
 class BaseEloquentModelCasting extends BaseEloquentModel
 {
@@ -22,7 +22,7 @@ class BaseEloquentModelCasting extends BaseEloquentModel
         'timestampAttribute' => 'timestamp',
     ];
 
-    protected $dates = ['payed_at'];
+    protected $dates = ['paid_at'];
 
     public function jsonAttributeValue()
     {
