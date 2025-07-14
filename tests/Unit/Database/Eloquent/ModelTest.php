@@ -88,7 +88,7 @@ class ModelTest extends TestCase
     {
         $datetime = '2012-12-04';
         $model = new BaseEloquentModelCasting();
-        $model->paid_at = $datetime;
+        $model->paid_at = Carbon::parse($datetime);
 
         self::assertInstanceOf(Carbon::class, $model->paid_at);
         self::assertSame($datetime.' 00:00:00', $model->paid_at->toDateTimeString());

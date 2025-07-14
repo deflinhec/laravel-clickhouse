@@ -94,26 +94,49 @@ use Deflinhec\LaravelClickHouse\Database\Eloquent\Model;
 
 class Payment extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'payments';
     
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
     protected $connection = 'clickhouse';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 }
 ```
 
 And use it
 ```php
-Payment::select(\DB::raw('count() AS cnt'), 'payment_system')
+use Tinderbox\ClickhouseBuilder\Query\Column;
+
+Payment::select(
+        function (Column $column) {
+            return $column->sum('total')
+                ->as('sum_total');
+        }, 
+        'user_id'
+    )
     ->whereBetween('paid_at', [
         Carbon\Carbon::parse('2017-01-01'),
         now(),
     ])
-    ->groupBy('payment_system')
+    ->groupBy('user_id')
     ->get();
 ```
 
 ## Testing
 
-The package includes comprehensive tests that run against PHP 7.3+ and are compatible with Laravel 5.0+ through Laravel 12.0+.
+The package includes comprehensive tests that run against PHP 7.3+ and should be compatible with Laravel 5.0+ through Laravel 12.0+, Laravel 5.6 have been tested.
 
 To run the tests:
 ```bash

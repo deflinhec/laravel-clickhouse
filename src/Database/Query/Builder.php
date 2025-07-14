@@ -3,15 +3,11 @@
 declare(strict_types=1);
 
 namespace Deflinhec\LaravelClickHouse\Database\Query;
-
 use Deflinhec\LaravelClickHouse\Database\Connection;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
-use Tinderbox\Clickhouse\Common\Format;
 use Tinderbox\ClickhouseBuilder\Query\BaseBuilder;
 use Tinderbox\ClickhouseBuilder\Query\Expression;
-use Tinderbox\ClickhouseBuilder\Query\Grammar;
 
 class Builder extends BaseBuilder
 {

@@ -39,6 +39,10 @@ class CollectionTest extends TestCase
             ->shouldReceive('getName')
             ->andReturn((new BaseEloquentModelCasting())->getConnectionName());
 
+        $this->connection
+            ->shouldReceive('getDriverName')
+            ->andReturn('clickhouse');
+
         /** @var Mock|DatabaseManager $resolver */
         $resolver = $this->mock(DatabaseManager::class);
         $resolver->shouldReceive('connection')
@@ -128,7 +132,7 @@ class CollectionTest extends TestCase
             ->shouldReceive('select')
             ->andReturn($connectionResult->toArray());
 
-        $found = BaseEloquentModelCasting::all()->find($key);
+        $found = BaseEloquentModelCasting::all()->find($key = value($key));
 
         if (is_array($key)) {
             self::assertInstanceOf(Collection::class, $found);
@@ -202,9 +206,11 @@ class CollectionTest extends TestCase
     {
         return [
             [5],
-            [tap(new BaseEloquentModelCasting(), function (BaseEloquentModelCasting $model) {
-                $model->id = 5;
-            }), ],
+            [function () {
+                return tap(new BaseEloquentModelCasting(), function($model) {
+                    $model->id = 5;
+                });
+            }, ],
             [1, 5],
         ];
     }

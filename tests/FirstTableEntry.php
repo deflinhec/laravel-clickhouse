@@ -13,5 +13,38 @@ class FirstTableEntry extends Model
      */
     protected $table = 'my_first_table';
 
-    protected $fillable = ['user_id', 'message', 'timestamp', 'metric'];
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'clickhouse';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'timestamp' => 'datetime',
+    ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'message',
+        'timestamp',
+        'metric',
+    ];
 }

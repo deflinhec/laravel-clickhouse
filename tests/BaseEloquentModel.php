@@ -15,7 +15,35 @@ use Deflinhec\LaravelClickHouse\Database\Eloquent\Model;
  */
 class BaseEloquentModel extends Model
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'test_table';
+
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'clickhouse';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'timestamp' => 'datetime',
+    ];
 
     public function getListItemsAttribute($value)
     {

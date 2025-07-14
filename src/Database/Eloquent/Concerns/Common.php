@@ -11,6 +11,21 @@ trait Common
      */
     public function save($options = array())
     {
-        return static::insert($this->toArray());
+        $this->mergeAttributesFromClassCasts();
+
+        if ($this->fireModelEvent('saving') === false) {
+            return false;
+        }
+
+        $saved = static::insert($this->attributesToArray());
+
+        // If the model is successfully saved, we need to do a few more things once
+        // that is done. We will call the "saved" method here to run any actions
+        // we need to happen after a model gets successfully saved right here.
+        if ($saved) {
+            $this->finishSave($options);
+        }
+
+        return $saved;
     }
 }

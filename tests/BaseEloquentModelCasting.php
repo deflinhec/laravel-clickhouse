@@ -4,11 +4,40 @@ declare(strict_types=1);
 
 namespace Deflinhec\LaravelClickHouse\Tests;
 
-class BaseEloquentModelCasting extends BaseEloquentModel
+use Deflinhec\LaravelClickHouse\Database\Eloquent\Model;
+
+class BaseEloquentModelCasting extends Model
 {
     use Helpers;
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'test_table';
+
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'clickhouse';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
     protected $casts = [
+        'paid_at' => 'datetime',
         'intAttribute' => 'int',
         'floatAttribute' => 'float',
         'stringAttribute' => 'string',
@@ -21,8 +50,6 @@ class BaseEloquentModelCasting extends BaseEloquentModel
         'datetimeAttribute' => 'datetime',
         'timestampAttribute' => 'timestamp',
     ];
-
-    protected $dates = ['paid_at'];
 
     public function jsonAttributeValue()
     {
