@@ -134,6 +134,17 @@ Payment::select(
     ->get();
 ```
 
+## Creating Migrations
+
+You can generate ClickHouse-specific migration files using the included Artisan command:
+
+```bash
+# Basic migration
+php artisan make:clickhouse-migration create_payment_table
+```
+
+The generated migrations will be placed in `database/migrations/clickhouse/` and include ClickHouse-specific features like proper data types, engine configuration, and partitioning strategies.
+
 ## Testing
 
 The package includes comprehensive tests that run against PHP 7.3+ and should be compatible with Laravel 5.0+ through Laravel 12.0+, Laravel 5.6 have been tested.
@@ -155,3 +166,4 @@ CLICKHOUSE_PASSWORD=password vendor/bin/phpunit
 - **PHP 7.3 Compatibility**: Removed all typed properties, parameter type hints, and return type declarations for backward compatibility
 - **Enhanced Testing**: Added comprehensive test suite with proper ClickHouse integration
 - **Documentation**: Updated configuration examples and usage instructions
+- **Migration Command**: Added `make:clickhouse-migration` command for generating ClickHouse-specific migration files

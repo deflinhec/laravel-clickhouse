@@ -1,0 +1,36 @@
+<?php
+
+use Deflinhec\LaravelClickHouse\Database\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class {{ class }} extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        // ClickHouse specific migration logic here
+        // Example:
+        // $this->clickhouse()->statement(<<<SQL
+        //    CREATE TABLE IF NOT EXISTS table_name (...)
+        // SQL);
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        // ClickHouse specific rollback logic here
+        // Example:
+        // $this->clickhouse()->statement(<<<SQL
+        //     DROP TABLE IF EXISTS table_name
+        // SQL);
+    }
+}
