@@ -1,0 +1,33 @@
+<?php
+
+use Deflinhec\LaravelClickHouse\Database\Migration;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        return <<<SQL
+            CREATE TABLE IF NOT EXISTS {{ table }} (
+{{ columns }}
+            ) ENGINE = MergeTree()
+            ORDER BY (id, created_at)
+        SQL;
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        return <<<SQL
+            DROP TABLE IF EXISTS {{ table }}
+        SQL;
+    }
+};

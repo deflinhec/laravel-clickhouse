@@ -1,0 +1,42 @@
+{
+    "name": "deflinhec/laravel-clickhouse",
+    "description": "Laravel ClickHouse integration package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "deflinhec",
+            "email": "deflinhec@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/support": "^5.6|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+        "illuminate/database": "^5.6|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+        "illuminate/console": "^5.6|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+        "smi2/phpclickhouse": "^1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0|^8.0|^9.0|^10.0",
+        "orchestra/testbench": "^3.0|^4.0|^5.0|^6.0|^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Deflinhec\\LaravelClickHouse\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Deflinhec\\LaravelClickHouse\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Deflinhec\\LaravelClickHouse\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
