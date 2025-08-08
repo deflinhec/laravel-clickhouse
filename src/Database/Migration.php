@@ -34,7 +34,23 @@ abstract class Migration
     abstract public function down();
 
     /**
-     * 執行 up 方法
+     * Check if the engine exists, if not, use the fallback engine
+     *
+     * @param string $engine
+     * @param string $fallback
+     * @return string
+     */
+    protected function engineExists(string $engine, string $fallback)
+    {
+        $name = preg_match('/^(\w+)\((.*)\)$/', $engine, $matches) ? $matches[1] : $engine;
+        return $this->client->select(<<<SQL
+            SELECT name FROM system.table_engines
+            WHERE name = '{$name}'
+        SQL)->fetchOne('name') === $name ? $engine : $fallback;
+    }
+
+    /**
+     * Run the up method
      *
      * @return void
      */
@@ -47,7 +63,7 @@ abstract class Migration
     }
 
     /**
-     * 執行 down 方法
+     * Run the down method
      *
      * @return void
      */

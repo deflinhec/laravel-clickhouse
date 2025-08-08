@@ -95,56 +95,68 @@ class MigrationService
     }
 
     /**
-     * Run migration
+     * Run migration with transaction support
      *
      * @param array $migration
      * @return void
      */
     public function runMigration($migration)
     {
-        $migrationInstance = $this->createMigrationInstance($migration);
+        DB::beginTransaction();
+        
+        try {
+            $migrationInstance = $this->createMigrationInstance($migration);
 
-        if ($migrationInstance) {
-            try {
+            if ($migrationInstance) {
                 $migrationInstance->runUp();
                 $this->logMigration($migration['name']);
-            } catch (\Exception $e) {
-                Log::error("Migration {$migration['name']} failed: " . $e->getMessage());
-                throw ClickHouseException::migrationError(
-                    "Migration {$migration['name']} failed: " . $e->getMessage(),
-                    [
-                        'migration' => $migration['name'],
-                        'exception' => $e->getMessage()
-                    ]
-                );
             }
+            
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            
+            Log::error("Migration {$migration['name']} failed: " . $e->getMessage());
+            throw ClickHouseException::migrationError(
+                "Migration {$migration['name']} failed: " . $e->getMessage(),
+                [
+                    'migration' => $migration['name'],
+                    'exception' => $e->getMessage()
+                ]
+            );
         }
     }
 
     /**
-     * Rollback migration
+     * Rollback migration with transaction support
      *
      * @param array $migration
      * @return void
      */
     public function rollbackMigration($migration)
     {
-        $migrationInstance = $this->createMigrationInstance($migration);
+        DB::beginTransaction();
+        
+        try {
+            $migrationInstance = $this->createMigrationInstance($migration);
 
-        if ($migrationInstance) {
-            try {
+            if ($migrationInstance) {
                 $migrationInstance->runDown();
                 $this->removeMigrationLog($migration['name']);
-            } catch (\Exception $e) {
-                Log::error("Migration rollback {$migration['name']} failed: " . $e->getMessage());
-                throw ClickHouseException::migrationError(
-                    "Migration rollback {$migration['name']} failed: " . $e->getMessage(),
-                    [
-                        'migration' => $migration['name'],
-                        'exception' => $e->getMessage()
-                    ]
-                );
             }
+            
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            
+            Log::error("Migration rollback {$migration['name']} failed: " . $e->getMessage());
+            throw ClickHouseException::migrationError(
+                "Migration rollback {$migration['name']} failed: " . $e->getMessage(),
+                [
+                    'migration' => $migration['name'],
+                    'exception' => $e->getMessage()
+                ]
+            );
         }
     }
 
@@ -176,8 +188,6 @@ class MigrationService
 
         return null;
     }
-
-
 
     /**
      * Log migration execution
