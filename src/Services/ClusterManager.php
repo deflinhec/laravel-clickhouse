@@ -9,35 +9,35 @@ use Deflinhec\LaravelClickHouse\Exceptions\ClickHouseException;
 class ClusterManager
 {
     /**
-     * 叢集配置
+     * Cluster configuration
      *
      * @var array
      */
     protected $config;
 
     /**
-     * 可用節點列表
+     * Available nodes list
      *
      * @var array
      */
     protected $availableNodes = [];
 
     /**
-     * 當前節點索引
+     * Current node index
      *
      * @var int
      */
     protected $currentNodeIndex = 0;
 
     /**
-     * 節點健康狀態快取鍵
+     * Node health status cache key
      *
      * @var string
      */
     protected $healthCacheKey = 'clickhouse_cluster_health';
 
     /**
-     * 建構函數
+     * Constructor
      *
      * @param array $config
      */
@@ -60,7 +60,7 @@ class ClusterManager
     }
 
     /**
-     * 獲取下一個可用節點
+     * Get next available node
      *
      * @return array|null
      */
@@ -90,7 +90,7 @@ class ClusterManager
     }
 
     /**
-     * 輪詢模式獲取節點
+     * Get node using round-robin mode
      *
      * @param array $healthyNodes
      * @return array
@@ -103,7 +103,7 @@ class ClusterManager
     }
 
     /**
-     * 隨機模式獲取節點
+     * Get node using random mode
      *
      * @param array $healthyNodes
      * @return array
@@ -126,7 +126,7 @@ class ClusterManager
     }
 
     /**
-     * 故障轉移模式獲取節點
+     * Get node using failover mode
      *
      * @param array $healthyNodes
      * @return array
@@ -137,7 +137,7 @@ class ClusterManager
     }
 
     /**
-     * 獲取健康的節點
+     * Get healthy nodes
      *
      * @return array
      */
@@ -156,7 +156,7 @@ class ClusterManager
     }
 
     /**
-     * 更新節點健康狀態
+     * Update node health status
      *
      * @return void
      */
@@ -180,7 +180,7 @@ class ClusterManager
     }
 
     /**
-     * 檢查節點健康狀態
+     * Check node health status
      *
      * @param array $node
      * @return array
@@ -229,7 +229,7 @@ class ClusterManager
     }
 
     /**
-     * 創建叢集客戶端
+     * Create cluster client
      *
      * @return ClickHouseClusterClient
      */
@@ -239,7 +239,7 @@ class ClusterManager
     }
 
     /**
-     * 獲取叢集狀態
+     * Get cluster status
      *
      * @return array
      */

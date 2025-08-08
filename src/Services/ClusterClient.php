@@ -8,14 +8,14 @@ use Deflinhec\LaravelClickHouse\Exceptions\ClickHouseException;
 class ClusterClient
 {
     /**
-     * 叢集管理器
+     * Cluster manager
      *
      * @var ClusterManager
      */
     protected $clusterManager;
 
     /**
-     * 建構函數
+     * Constructor
      *
      * @param ClusterManager $clusterManager
      */
@@ -25,7 +25,7 @@ class ClusterClient
     }
 
     /**
-     * 執行查詢
+     * Execute query
      *
      * @param string $sql
      * @param array $params
@@ -73,14 +73,14 @@ class ClusterClient
                     );
                 }
 
-                // 等待重試
+                // Wait before retry
                 usleep($retryDelay * 1000);
             }
         }
     }
 
     /**
-     * 執行寫入操作
+     * Execute write operation
      *
      * @param string $sql
      * @param array $params
@@ -128,14 +128,14 @@ class ClusterClient
                     );
                 }
 
-                // 等待重試
+                // Wait before retry
                 usleep($retryDelay * 1000);
             }
         }
     }
 
     /**
-     * 從節點配置創建客戶端
+     * Create client from node configuration
      *
      * @param array $node
      * @return Client
@@ -165,7 +165,7 @@ class ClusterClient
     }
 
     /**
-     * 獲取叢集狀態
+     * Get cluster status
      *
      * @return array
      */
@@ -175,7 +175,7 @@ class ClusterClient
     }
 
     /**
-     * 測試連接
+     * Test connection
      *
      * @return bool
      */

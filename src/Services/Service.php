@@ -8,14 +8,14 @@ use Deflinhec\LaravelClickHouse\Exceptions\ClickHouseException;
 class Service
 {
     /**
-     * ClickHouse 客戶端實例
+     * ClickHouse client instance
      *
      * @var \ClickHouseDB\Client
      */
     protected $client;
 
     /**
-     * 建構函數
+     * Constructor
      */
     public function __construct()
     {
@@ -23,7 +23,7 @@ class Service
     }
 
     /**
-     * 測試 ClickHouse 連接
+     * Test ClickHouse connection
      *
      * @return bool
      */
@@ -42,7 +42,7 @@ class Service
     }
 
     /**
-     * 執行自定義查詢
+     * Execute custom query
      *
      * @param string $sql
      * @param array $params
@@ -70,7 +70,7 @@ class Service
     }
 
     /**
-     * 獲取 ClickHouse 客戶端實例
+     * Get ClickHouse client instance
      *
      * @return Client
      */

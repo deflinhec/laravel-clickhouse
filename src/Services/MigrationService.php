@@ -10,30 +10,30 @@ use Deflinhec\LaravelClickHouse\Exceptions\ClickHouseException;
 class MigrationService
 {
     /**
-     * ClickHouse 客戶端實例
+     * ClickHouse client instance
      *
      * @var \ClickHouseDB\Client
      */
     protected $client;
 
     /**
-     * 遷移表名稱
+     * Migration table name
      *
      * @var string
      */
     protected $migrationsTable;
 
     /**
-     * 建構函數
+     * Constructor
      */
     public function __construct()
     {
         $this->client = app(\ClickHouseDB\Client::class);
-        $this->migrationsTable = 'migrations'; // 使用 Laravel 的 migrations 資料表
+        $this->migrationsTable = 'migrations'; // Use Laravel's migrations table
     }
 
     /**
-     * 獲取待執行的遷移
+     * Get pending migrations
      *
      * @param string $path
      * @return array
@@ -60,7 +60,7 @@ class MigrationService
     }
 
     /**
-     * 獲取最後執行的遷移
+     * Get last executed migrations
      *
      * @param int $step
      * @return array
@@ -89,7 +89,7 @@ class MigrationService
     }
 
     /**
-     * 執行遷移
+     * Run migration
      *
      * @param array $migration
      * @return void
@@ -116,7 +116,7 @@ class MigrationService
     }
 
     /**
-     * 回滾遷移
+     * Rollback migration
      *
      * @param array $migration
      * @return void
@@ -143,7 +143,7 @@ class MigrationService
     }
 
     /**
-     * 創建遷移實例
+     * Create migration instance
      *
      * @param array $migration
      * @return \Deflinhec\LaravelClickHouse\Database\Migration|null
@@ -174,7 +174,7 @@ class MigrationService
 
 
     /**
-     * 記錄遷移執行
+     * Log migration execution
      *
      * @param string $migration
      * @return void
@@ -190,7 +190,7 @@ class MigrationService
     }
 
     /**
-     * 移除遷移記錄
+     * Remove migration log
      *
      * @param string $migration
      * @return void
@@ -203,7 +203,7 @@ class MigrationService
     }
 
     /**
-     * 獲取已執行的遷移列表
+     * Get list of executed migrations
      *
      * @return array
      */
@@ -216,7 +216,7 @@ class MigrationService
     }
 
     /**
-     * 獲取下一個批次號
+     * Get next batch number
      *
      * @return int
      */
@@ -227,7 +227,7 @@ class MigrationService
     }
 
     /**
-     * 從檔案路徑獲取遷移名稱
+     * Get migration name from file path
      *
      * @param string $file
      * @return string

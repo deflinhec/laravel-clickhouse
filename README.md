@@ -1,36 +1,55 @@
 # Laravel ClickHouse Package
 
-Laravel ClickHouse 整合套件，基於 `smi2/phpclickhouse` 客戶端。
+[![Latest Stable Version](https://poser.pugx.org/deflinhec/laravel-clickhouse/v/stable)](https://packagist.org/packages/deflinhec/laravel-clickhouse)
+[![License](https://poser.pugx.org/deflinhec/laravel-clickhouse/license)](https://packagist.org/packages/deflinhec/laravel-clickhouse)
+[![composer.lock](https://poser.pugx.org/deflinhec/laravel-clickhouse/composerlock)](https://packagist.org/packages/deflinhec/laravel-clickhouse)
 
-## 功能特色
+Laravel ClickHouse integration package based on `smi2/phpclickhouse` client with advanced features including migration system, cluster support, and comprehensive exception handling.
 
-- 🔗 ClickHouse 連接管理
-- 🚀 遷移系統支援
-- 📊 查詢建構器
-- 🧪 測試工具
-- 📝 完整的日誌記錄
-- ⚡ 高效能查詢支援
+* **Vendor**: deflinhec
+* **Package**: laravel-clickhouse
+* **[Composer](https://getcomposer.org/):** `composer require deflinhec/laravel-clickhouse`
 
-## 安裝
+## Features
 
-### 1. 安裝依賴
+- 🔗 ClickHouse connection management with multiple connection support
+- 🚀 Migration system with Laravel integration
+- 📊 Query builder and custom query execution
+- 🧪 Testing tools and CLI interface
+- 📝 Complete logging and monitoring
+- ⚡ High-performance query support
+- 🌐 Cluster mode with load balancing (round-robin, random, failover)
+- 🛡️ Comprehensive exception handling with custom error types
+- 🔧 Artisan commands for management and testing
+- 📦 Composer package with proper autoloading
+
+## PHP Compatibility
+
+This package is compatible with:
+
+* **PHP 7.3+** (with full type hint support)
+* **Laravel 5.0+** through **Laravel 12.0+**
+
+## Installation
+
+### 1. Install Package
 
 ```bash
-composer require smi2/phpclickhouse
+composer require deflinhec/laravel-clickhouse
 ```
 
-### 2. 發佈配置檔案
+### 2. Publish Configuration Files
 
 ```bash
 php artisan vendor:publish --tag=clickhouse-config
 ```
 
-### 3. 設定環境變數
+### 3. Set Environment Variables
 
-在 `.env` 檔案中添加：
+Add the following to your `.env` file:
 
 ```env
-# ClickHouse 連接設定
+# ClickHouse Connection Settings
 CLICKHOUSE_HOST=localhost
 CLICKHOUSE_PORT=8123
 CLICKHOUSE_USERNAME=default
@@ -40,55 +59,48 @@ CLICKHOUSE_SSL=false
 CLICKHOUSE_READONLY=true
 CLICKHOUSE_TIMEOUT=30
 
-# 日誌設定
+# Logging Settings
 CLICKHOUSE_LOGGING_ENABLED=true
 CLICKHOUSE_LOGGING_CHANNEL=clickhouse
 
-# 遷移設定
+# Migration Settings
 CLICKHOUSE_MIGRATIONS_PATH=database/migrations/clickhouse
 
-# 叢集模式設定（可選）
+# Cluster Mode Settings (Optional)
 CLICKHOUSE_CONNECTION=cluster
 CLICKHOUSE_CLUSTER_MODE=round_robin
-CLICKHOUSE_CLUSTER_NODE1_HOST=clickhouse-node1
-CLICKHOUSE_CLUSTER_NODE1_PORT=8123
-CLICKHOUSE_CLUSTER_NODE1_USERNAME=default
-CLICKHOUSE_CLUSTER_NODE1_PASSWORD=clickhouse
-CLICKHOUSE_CLUSTER_NODE1_DATABASE=default
-CLICKHOUSE_CLUSTER_NODE1_WEIGHT=1
-CLICKHOUSE_CLUSTER_NODE2_HOST=clickhouse-node2
-CLICKHOUSE_CLUSTER_NODE2_PORT=8123
-CLICKHOUSE_CLUSTER_NODE2_USERNAME=default
-CLICKHOUSE_CLUSTER_NODE2_PASSWORD=clickhouse
-CLICKHOUSE_CLUSTER_NODE2_DATABASE=default
-CLICKHOUSE_CLUSTER_NODE2_WEIGHT=1
+CLICKHOUSE_CLUSTER_NODES=node1,node2
+CLICKHOUSE_CLUSTER_PORTS=8123,8123
+CLICKHOUSE_CLUSTER_WEIGHTS=1,1
 CLICKHOUSE_CLUSTER_RETRY_ATTEMPTS=3
 CLICKHOUSE_CLUSTER_RETRY_DELAY=1000
 CLICKHOUSE_CLUSTER_HEALTH_CHECK_INTERVAL=30
 CLICKHOUSE_CLUSTER_FAILOVER_TIMEOUT=5000
 ```
 
-## 使用方法
+## Basic Usage
 
-### 基本查詢
+### Service-based Approach
 
 ```php
 use Deflinhec\LaravelClickHouse\Services\Service;
 
 $clickHouse = new Service();
 
-// 執行自定義查詢
+// Execute custom query
 $result = $clickHouse->executeQuery('SELECT * FROM your_table LIMIT 10');
 
-// 測試連接
+// Test connection
 if ($clickHouse->testConnection()) {
-    echo "連接成功！";
+    echo "Connection successful!";
 }
 ```
 
-### 異常處理
 
-套件提供了自定義的 `ClickHouseException` 類別，包含以下錯誤類型：
+
+## Exception Handling
+
+The package provides a custom `ClickHouseException` class with comprehensive error types:
 
 ```php
 use Deflinhec\LaravelClickHouse\Exceptions\ClickHouseException;
@@ -96,13 +108,13 @@ use Deflinhec\LaravelClickHouse\Exceptions\ClickHouseException;
 try {
     $result = $clickHouse->executeQuery('SELECT * FROM non_existent_table');
 } catch (ClickHouseException $e) {
-    echo "錯誤類型: " . $e->getErrorType();
-    echo "錯誤代碼: " . $e->getErrorCode();
-    echo "錯誤訊息: " . $e->getMessage();
-    echo "錯誤上下文: " . json_encode($e->getContext());
+    echo "Error Type: " . $e->getErrorType();
+    echo "Error Code: " . $e->getErrorCode();
+    echo "Error Message: " . $e->getMessage();
+    echo "Error Context: " . json_encode($e->getContext());
 }
 
-// 可用的錯誤類型
+// Available error types
 ClickHouseException::connectionError($message, $context);
 ClickHouseException::queryError($message, $context);
 ClickHouseException::configurationError($message, $context);
@@ -115,88 +127,95 @@ ClickHouseException::syntaxError($message, $context);
 ClickHouseException::resourceError($message, $context);
 ```
 
-## Artisan 命令
+## Artisan Commands
 
-### 測試連接
+### Interactive CLI
 
 ```bash
-# 基本連接測試
+# Open ClickHouse interactive CLI
+php artisan clickhouse
+```
+
+### Connection Testing
+
+```bash
+# Basic connection test
 php artisan clickhouse:test
 
-# 執行自定義查詢
+# Execute custom query
 php artisan clickhouse:test --query="SELECT COUNT(*) FROM your_table"
 
-# 指定連接
+# Specify connection
 php artisan clickhouse:test --connection=local
 ```
 
-### 叢集管理
+### Cluster Management
 
 ```bash
-# 檢查叢集狀態
+# Check cluster status
 php artisan clickhouse:cluster:status
 
-# 詳細叢集狀態
+# Detailed cluster status
 php artisan clickhouse:cluster:status --detailed
 
-# 指定連接檢查叢集狀態
+# Check cluster status with specific connection
 php artisan clickhouse:cluster:status --connection=cluster
 ```
 
-### 遷移管理
+### Migration Management
 
 ```bash
-# 創建遷移檔案
+# Create migration file
 php artisan make:clickhouse-migration create_users_table
 php artisan make:clickhouse-migration create_orders_table --table=orders
 php artisan make:clickhouse-migration create_products_table --create --columns="name:string,price:decimal,is_active:bool"
 
-# 執行遷移
+# Run migrations
 php artisan clickhouse:migrate
 
-# 預覽遷移 SQL
+# Preview migration SQL
 php artisan clickhouse:migrate --pretend
 
-# 指定遷移路徑
+# Specify migration path
 php artisan clickhouse:migrate --path=database/migrations/clickhouse
 
-# 回滾遷移
+# Rollback migrations
 php artisan clickhouse:migrate:rollback
 
-# 回滾指定數量
+# Rollback specific number of migrations
 php artisan clickhouse:migrate:rollback --step=3
 ```
 
-## 遷移檔案
+## Migration System
 
-### 重要說明
+### Important Notes
 
-ClickHouse 遷移使用 Laravel 的預設 `migrations` 資料表來追蹤遷移狀態，而不是在 ClickHouse 中創建額外的資料表。這確保了遷移記錄與其他 Laravel 遷移保持一致。
+ClickHouse migrations use Laravel's default `migrations` table to track migration status, rather than creating additional tables in ClickHouse. This ensures migration records are consistent with other Laravel migrations.
 
-### 創建遷移檔案
+### Creating Migration Files
 
-使用 `make:clickhouse-migration` 命令快速創建遷移檔案：
+Use the `make:clickhouse-migration` command to quickly create migration files:
 
 ```bash
-# 基本用法
+# Basic usage
 php artisan make:clickhouse-migration create_users_table
 
-# 指定表名
+# Specify table name
 php artisan make:clickhouse-migration create_orders_table --table=orders
 
-# 創建表（明確指定）
+# Create table (explicitly specified)
 php artisan make:clickhouse-migration create_products_table --create
 
-# 自定義欄位
+# Custom fields
 php artisan make:clickhouse-migration create_analytics_table --columns="user_id:int,name:string,score:float,is_active:bool,tags:array"
 
-# 指定路徑
+# Specify path
 php artisan make:clickhouse-migration create_test_table --path=database/migrations/custom
 ```
 
-### 支援的欄位類型
+### Supported Field Types
 
-命令支援以下欄位類型映射：
+The command supports the following field type mappings:
 
 - `string` → `String`
 - `int` / `integer` → `Int32`
@@ -210,7 +229,7 @@ php artisan make:clickhouse-migration create_test_table --path=database/migratio
 - `array` → `Array(String)`
 - `json` → `String`
 
-### 手動創建遷移檔案
+### Manual Migration File Creation
 
 ```php
 <?php
@@ -221,7 +240,7 @@ class CreateExampleTable extends Migration
 {
     public function up()
     {
-        $this->client->write("
+        return <<<SQL
             CREATE TABLE IF NOT EXISTS example_table (
                 id UInt32,
                 name String,
@@ -233,19 +252,21 @@ class CreateExampleTable extends Migration
                 updated_at DateTime DEFAULT now()
             ) ENGINE = MergeTree()
             ORDER BY (id, created_at)
-        ");
+        SQL;
     }
 
     public function down()
     {
-        $this->client->write("DROP TABLE IF EXISTS example_table");
+        return <<<SQL
+            DROP TABLE IF EXISTS example_table
+        SQL;
     }
 }
 ```
 
-## 配置選項
+## Configuration
 
-### 連接設定
+### Connection Settings
 
 ```php
 'connections' => [
@@ -261,35 +282,38 @@ class CreateExampleTable extends Migration
             'verify' => env('CLICKHOUSE_VERIFY', false),
         ],
     ],
+    'cluster' => [
+        'mode' => env('CLICKHOUSE_CLUSTER_MODE', 'round_robin'),
+        'nodes' => [
+            'host' => explode(',', env('CLICKHOUSE_CLUSTER_NODES', 'node1,node2')),
+            'port' => explode(',', env('CLICKHOUSE_CLUSTER_PORTS', '8123,8123')),
+            'weight' => explode(',', env('CLICKHOUSE_CLUSTER_WEIGHTS', '1,1')),
+            'username' => env('CLICKHOUSE_USERNAME', 'default'),    
+            'password' => env('CLICKHOUSE_PASSWORD', 'clickhouse'),
+            'database' => env('CLICKHOUSE_DATABASE', 'default'),
+            'options' => [
+                'timeout' => env('CLICKHOUSE_TIMEOUT', 30),
+                'ssl' => env('CLICKHOUSE_SSL', false),
+                'readonly' => env('CLICKHOUSE_READONLY', true),
+            ],
+        ],
+        'options' => [
+            'retry_attempts' => env('CLICKHOUSE_CLUSTER_RETRY_ATTEMPTS', 3),
+            'retry_delay' => env('CLICKHOUSE_CLUSTER_RETRY_DELAY', 1000), // milliseconds
+            'health_check_interval' => env('CLICKHOUSE_CLUSTER_HEALTH_CHECK_INTERVAL', 30), // seconds
+            'failover_timeout' => env('CLICKHOUSE_CLUSTER_FAILOVER_TIMEOUT', 5000), // milliseconds
+        ],
+    ],
 ],
 ```
 
-### 效能設定
 
-```php
-'performance' => [
-    'max_execution_time' => env('CLICKHOUSE_MAX_EXECUTION_TIME', 300),
-    'max_memory_usage' => env('CLICKHOUSE_MAX_MEMORY_USAGE', 10000000000),
-    'max_bytes_before_external_group_by' => env('CLICKHOUSE_MAX_BYTES_BEFORE_EXTERNAL_GROUP_BY', 2000000000),
-    'max_bytes_before_external_sort' => env('CLICKHOUSE_MAX_BYTES_BEFORE_EXTERNAL_SORT', 2000000000),
-],
-```
 
-## 測試
+## Table Structure Examples
 
-```bash
-# 執行測試
-php artisan clickhouse:test
+### Basic Table
 
-# 測試特定功能
-php artisan clickhouse:test --query="SELECT has(depth.identify, 'agent1') FROM your_table LIMIT 1"
-```
-
-## 資料表結構範例
-
-### 基本資料表
-
-標準的 ClickHouse 資料表結構範例：
+Standard ClickHouse table structure example:
 
 ```sql
 CREATE TABLE example_table (
@@ -301,9 +325,9 @@ CREATE TABLE example_table (
 ORDER BY (id, created_at)
 ```
 
-### Nested 資料類型範例
+### Nested Data Type Example
 
-使用 ClickHouse 的 Nested 資料類型來處理複雜的層級結構：
+Using ClickHouse's Nested data type to handle complex hierarchical structures:
 
 ```sql
 CREATE TABLE nested_example (
@@ -314,19 +338,51 @@ CREATE TABLE nested_example (
 ORDER BY (id, created_at)
 ```
 
-效益包括：
-- 資料結構更精簡、節省儲存空間
-- 查詢更具彈性（可使用 `has()`, `arrayJoin()` 等 ClickHouse 強項函數）
-- 更容易進行深層結構的分析與維護
+Benefits include:
+- More compact data structure, saving storage space
+- More flexible queries (can use `has()`, `arrayJoin()` and other ClickHouse strengths)
+- Easier analysis and maintenance of deep structures
 
-## 支援的 ClickHouse 函數
+## Supported ClickHouse Functions
 
-- `has()` - 檢查陣列中是否包含特定值
-- `arrayJoin()` - 展開陣列
-- `length()` - 獲取陣列長度
-- `toDate()` - 日期轉換
-- `row_number() OVER (PARTITION BY ... ORDER BY ...)` - 視窗函數
+- `has()` - Check if array contains specific value
+- `arrayJoin()` - Expand arrays
+- `length()` - Get array length
+- `toDate()` - Date conversion
+- `row_number() OVER (PARTITION BY ... ORDER BY ...)` - Window functions
 
-## 授權
+## Testing
+
+```bash
+# Run tests
+php artisan clickhouse:test
+
+# Test specific functionality
+php artisan clickhouse:test --query="SELECT has(depth.identify, 'agent1') FROM your_table LIMIT 1"
+
+# Set up ClickHouse server (if not already running)
+docker run -d --name clickhouse-server -p 8124:8123 -p 9001:9000 \
+  -e CLICKHOUSE_USER=default -e CLICKHOUSE_PASSWORD=password \
+  -e CLICKHOUSE_DB=default clickhouse/clickhouse-server:latest
+
+# Run tests with proper environment variables
+CLICKHOUSE_HOST=host.docker.internal CLICKHOUSE_PORT=8124 \
+CLICKHOUSE_PASSWORD=password vendor/bin/phpunit
+```
+
+## Recent Updates
+
+* **Enhanced Migration System**: Full Laravel migration integration with custom commands
+* **Cluster Support**: Multi-node ClickHouse cluster with load balancing and health checks
+* **Exception Handling**: Comprehensive error handling with custom exception types
+* **CLI Interface**: Interactive ClickHouse client and management commands
+* **Performance Optimization**: Configurable performance settings and connection pooling
+* **Documentation**: Complete documentation with examples and best practices
+
+## Credits
+
+This package was originally created by **bavix** and has been significantly enhanced with modern Laravel features, cluster support, and comprehensive testing.
+
+## License
 
 MIT License
