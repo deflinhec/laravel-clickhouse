@@ -80,10 +80,16 @@ class MigrationService
             ->limit($step)
             ->get(['migration', 'batch']);
 
-        return $migrations->map(function ($migration) {
+        $migrationPath = config('clickhouse.migrations.path', database_path('migrations/clickhouse'));
+
+        return $migrations->map(function ($migration) use ($migrationPath) {
+            $fileName = $migration->migration . '.php';
+            $filePath = $migrationPath . '/' . $fileName;
+
             return [
                 'name' => $migration->migration,
                 'batch' => $migration->batch,
+                'file' => $filePath,
             ];
         })->toArray();
     }
