@@ -139,14 +139,14 @@ php artisan clickhouse
 ### Connection Testing
 
 ```bash
-# Basic connection test
-php artisan clickhouse:test
+# Open interactive CLI (includes connection test)
+php artisan clickhouse
 
-# Execute custom query
-php artisan clickhouse:test --query="SELECT COUNT(*) FROM your_table"
+# Execute single query
+php artisan clickhouse --query="SELECT COUNT(*) FROM your_table"
 
 # Specify connection
-php artisan clickhouse:test --connection=local
+php artisan clickhouse --connection=local
 ```
 
 ### Cluster Management
@@ -354,11 +354,11 @@ Benefits include:
 ## Testing
 
 ```bash
-# Run tests
-php artisan clickhouse:test
+# Open interactive CLI for testing
+php artisan clickhouse
 
-# Test specific functionality
-php artisan clickhouse:test --query="SELECT has(depth.identify, 'agent1') FROM your_table LIMIT 1"
+# Execute test query
+php artisan clickhouse --query="SELECT has(depth.identify, 'agent1') FROM your_table LIMIT 1"
 
 # Set up ClickHouse server (if not already running)
 docker run -d --name clickhouse-server -p 8124:8123 -p 9001:9000 \
