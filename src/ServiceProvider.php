@@ -89,7 +89,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         }
 
         // 可以在這裡添加 ClickHouse 特定的初始化邏輯
-        Log::info('ClickHouse connection registered with smi2/phpclickhouse');
     }
 
     /**
