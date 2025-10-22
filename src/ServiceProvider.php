@@ -100,7 +100,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         if (config('clickhouse.logging.enabled')) {
             // 可以添加 ClickHouse 特定的日誌處理邏輯
-            Log::channel(config('clickhouse.logging.channel'))->info('ClickHouse logging initialized');
         }
     }
 }
